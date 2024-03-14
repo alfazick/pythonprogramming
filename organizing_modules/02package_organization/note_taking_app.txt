@@ -1,0 +1,15 @@
+Application Structure
+Here's how we'll organize our note-taking application:
+
+bash
+Copy code
+note_taking_app/
+│
+├── __init__.py
+├── app.py          # The main application module
+├── notes.py        # Module to manage note operations
+└── storage.py      # Module to handle note storage
+__init__.py: Makes note_taking_app a Python package.
+app.py: This is the entry point of our application, handling user input and output.
+notes.py: Contains the logic for creating, updating, reading, and deleting notes.
+storage.py: Manages storing and retrieving notes from a simple file system-based storage.
