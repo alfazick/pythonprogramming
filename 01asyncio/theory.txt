@@ -1,0 +1,46 @@
+Here are the main ideas that underlie async programming in Python:
+
+1. Asynchronous vs. Synchronous Execution
+Synchronous Execution: The default mode of operation in programming where tasks are completed one after another. Each task must be completed before the next one starts, potentially leading to inefficient utilization of resources when waiting (e.g., for I/O operations).
+Asynchronous Execution: Allows multiple operations to run concurrently, pausing one task to utilize waiting time effectively by executing another. It’s particularly useful for I/O-bound and high-level structured network code.
+
+2. Event Loop
+The core of any asyncio application, the event loop, runs tasks, 
+handles events, and manages asynchronous I/O procedures. 
+It continues to run until there are no tasks left to manage.
+It’s responsible for scheduling asynchronous tasks and callbacks,
+ and it essentially orchestrates how and when each task runs.
+
+3. Coroutines
+A fundamental construct of asyncio for writing concurrent code. 
+Coroutines are special functions that can suspend and resume execution at certain points via await.
+Use async def to define them. They are intended to work with other coroutines,
+ making them perfect for tasks that can be broken down into smaller, cooperative tasks.
+
+4. await Keyword
+Used to pause the coroutine until the result is available, 
+allowing other tasks to run in the meantime. It helps manage how coroutines 
+yield control to each other.
+The await expression is used to get the result from an operation 
+that provides a result asynchronously.
+
+5. Tasks
+These are used to schedule coroutines concurrently. When a coroutine is wrapped 
+into a Task with functions like asyncio.create_task(), it’s scheduled to 
+run soon in the event loop.
+Tasks are essential for managing the execution of several coroutines, 
+allowing them to run in the background.
+
+6. Futures
+A Future is an object that represents a result that hasn’t been computed yet. 
+It is a low-level awaitable object that represents an eventual 
+result of an asynchronous operation.
+While not often used directly in high-level asyncio applications,
+ they are fundamental to how asyncio operates underneath the hood.
+
+7. asyncio.gather() and Concurrency
+Used to run multiple asynchronous tasks concurrently. 
+If you want to launch several tasks and wait for all of them to complete, 
+gathering tasks is an efficient method.
+This is helpful when you need to collect results from multiple asynchronous 
+operations and process them together as a batch.
